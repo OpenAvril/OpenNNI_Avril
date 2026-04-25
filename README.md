@@ -15,10 +15,10 @@ version: Ubuntu 24.04.4 LTS
 Build #IU-261.22158.277, built on March 25, 2026.
 
 ### Dependencies.
-#### The Java Development Kit (JDK).
-#### Java Runtime Eenvironment (JRE).
-#### Apache Maven. 
-#### IntelliJ-idea.
+- #### The Java Development Kit (JDK).
+- #### Java Runtime Eenvironment (JRE).
+- #### Apache Maven. 
+- #### IntelliJ-idea.
 
 
 Terminal install of the above.
