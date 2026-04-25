@@ -1,5 +1,11 @@
 package engine;
-import structs.*;
+import structs.do_task.Algorithm;
+import structs.do_task.User_Algorithm;
+import structs.input.Input;
+import structs.input.User_Input;
+import structs.output.Output;
+import structs.output.User_Output;
+
 public class Framework_NNI
 {
     private static App _stat_CLASS_App;

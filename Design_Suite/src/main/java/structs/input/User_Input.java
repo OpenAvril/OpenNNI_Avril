@@ -1,8 +1,5 @@
-package structs;
-import structs.praisesubsets.Input_praise0;
-import structs.praisesubsets.Input_praise1;
-import structs.praisesubsets.Input_praise2;
-import structs.praisesubsets.Input_praise3;
+package structs.input;
+
 public class User_Input
 {
     private static Input_praise0 _stat_CLASS_Subest_praise0;

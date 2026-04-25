@@ -1,9 +1,6 @@
-package structs;
+package structs.do_task;
 import engine.Framework_NNI;
-import structs.praisesubsets.Algorithm_praise0;
-import structs.praisesubsets.Algorithm_praise1;
-import structs.praisesubsets.Algorithm_praise2;
-import structs.praisesubsets.Algorithm_praise3;
+
 public class Algorithm
 {
 

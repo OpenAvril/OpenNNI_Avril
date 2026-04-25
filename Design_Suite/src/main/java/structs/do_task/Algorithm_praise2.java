@@ -1,6 +1,9 @@
-package structs.praisesubsets;
+package structs.do_task;
 
-public class Algorithm_praise2 
+import structs.input.Input_praise2;
+import structs.output.Output_praise2;
+
+public class Algorithm_praise2
 {
     public Algorithm_praise2()
     {

@@ -1,4 +1,4 @@
-package structs.praisesubsets;
+package structs.output;
 
 import engine.Framework_NNI;
 

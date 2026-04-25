@@ -1,10 +1,6 @@
-package structs;
+package structs.output;
 
 import engine.Framework_NNI;
-import structs.praisesubsets.Output_praise0;
-import structs.praisesubsets.Output_praise1;
-import structs.praisesubsets.Output_praise2;
-import structs.praisesubsets.Output_praise3;
 
 public class Output
 {

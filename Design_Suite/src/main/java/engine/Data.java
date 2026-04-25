@@ -1,5 +1,5 @@
 package engine;
-import structs.MchineNeuralNetwork;
+import structs.mchine_neural_network.MchineNeuralNetwork;
 public class Data
 {
     private static MchineNeuralNetwork[] _stat_REG_list_Of_MchineNeuralNetwork;

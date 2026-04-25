@@ -1,8 +1,5 @@
-package structs;
-import structs.praisesubsets.Algorithm_praise0;
-import structs.praisesubsets.Algorithm_praise1;
-import structs.praisesubsets.Algorithm_praise2;
-import structs.praisesubsets.Algorithm_praise3;
+package structs.do_task;
+
 public class User_Algorithm
 {
     private static Algorithm_praise0 _stat_CLASS_Subest_praise0;

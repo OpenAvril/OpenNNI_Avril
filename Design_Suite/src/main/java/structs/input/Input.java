@@ -1,10 +1,6 @@
-package structs;
+package structs.input;
 
 import engine.Framework_NNI;
-import structs.praisesubsets.Input_praise0;
-import structs.praisesubsets.Input_praise1;
-import structs.praisesubsets.Input_praise2;
-import structs.praisesubsets.Input_praise3;
 
 public class Input
 {
