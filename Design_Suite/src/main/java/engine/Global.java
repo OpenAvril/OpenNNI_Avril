@@ -2,6 +2,44 @@ package engine;
 
 public class Global
 {
+    public enum NodeLayer
+    {
+        Layer_4,
+        Layer_3,
+        Layer_2,
+        Layer_1,
+        Layer_0
+    }
+    public enum PraiseID
+    {
+        Praise_0,
+        Praise_1,
+        Praise_2,
+        Praise_3
+    }
+    public enum PRAISE_0_I {
+        Value_A,
+        Value_B
+    }
+    public enum PRAISE_0_O
+    {
+        Value_Out
+    }
+    public enum PRAISE_1_I {
+        Value_A,
+        Value_B
+
+    }
+    enum PRAISE_1_O {
+        Value_Out
+    }
+    public enum PRAISE_2_I {
+        Value_A,
+        Value_B
+    }
+    public enum PRAISE_2_O {
+        Value_Out
+    }
     private static int _stat_REG_numberOfPraises;
 // public.
     public Global()

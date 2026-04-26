@@ -6,13 +6,30 @@ public class Node
     private double _REGISTERED_Output;
     private byte _NumberOfInputs;
 
+    //todo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public Node()
     {
-        //System.Console.WriteLine("entered Node.");
+        //System.out.printf("entered Node.");
         Create_NumberOfInputs();
         Create_list_Of_Linear_NeuralPath();
         Create_REGISTERED_Output();
-        //System.Console.WriteLine("exiting Node.");
+        //System.out.printf("exiting Node.");
     }
     public void Initialise_list_Of_Linear_NeuralPath(byte numberOfInputs)
     {
@@ -28,7 +45,7 @@ public class Node
     {
         Set_NumberOfInputs(numberOfInputs);
     }
-    public void Run_All_Neural_Path_Calculations(MachineAI objNNI, byte outputID, byte hiddenLayerID, byte nodeID, byte numberOfInputsForNode)
+    public void Run_All_Neural_Path_Calculations(MchineNeuralNetwork objNNI, byte outputID, byte hiddenLayerID, byte nodeID, byte numberOfInputsForNode)
     {
         double sum_Bias = 0.0;
         double sum_weight = 0.0;

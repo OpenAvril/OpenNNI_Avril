@@ -1,5 +1,8 @@
 package structs.neural_path;
 
+import engine.Global;
+import structs.mchine_neural_network.MchineNeuralNetwork;
+
 public class PraiseSet
 {
     //private Node _New_Node;todo move to framework
@@ -8,17 +11,33 @@ public class PraiseSet
     private Node[] _List_Of_Layer2_Nodes;
     private Node[] _List_Of_Layer1_Nodes;
     private Node _Layer0_Node;
+
+    //todo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //private.
     public PraiseSet()
     {
-        //System.Console.WriteLine("entered MetaData.");
+        //System.out.printf("entered MetaData.");
         Create_List_Of_Layer4_Nodes();
         Create_List_Of_Layer3_Nodes();
         Create_List_Of_Layer2_Nodes();
         Create_List_Of_Layer1_Nodes();
         Create_Layer0_Node();
     }
-    public void Initialise_Tree_Of_Nodes_In_PraiseSet(MachineAI objNNI, byte outputID)
+    public void Initialise_Tree_Of_Nodes_In_PraiseSet(MchineNeuralNetwork objNNI, byte outputID)
     {
         objNNI.Get_Item_On_list_Of_Linear_Paths(outputID).Get_PraiseSet().Initialise_List_Of_Layer4_Nodes(objNNI.Get_MetaData().Get_NumberOfNodesInHiddenLayer(4));
         objNNI.Get_Item_On_list_Of_Linear_Paths(outputID).Get_PraiseSet().Initialise_List_Of_Layer3_Nodes(objNNI.Get_MetaData().Get_NumberOfNodesInHiddenLayer(3));
@@ -30,7 +49,7 @@ public class PraiseSet
     {
         switch (layer)
         {
-            case (byte)Global.NodeLayer.Layer_4:
+            case (byte) Global.NodeLayer.Layer_4:
                 return Get_Item_On_List_Of_Layer4_Node(nodeID);
 
             case (byte)Global.NodeLayer.Layer_3:

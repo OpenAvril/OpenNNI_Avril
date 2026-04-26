@@ -88,35 +88,39 @@ public class Framework_NNI
     {
         return stat_STRUCT_get_User_Output();
     }
-    public void dyn_STRUCT_boot0_DECLAIRE()
+    public void dyn_STRUCT_Set_Algorithm(Algorithm struxtAlgorithm)
     {
-        System.out.printf("entered stat_STRUCT_boot0_DECLAIRE().%n");
-
-        System.out.printf("exiting stat_STRUCT_boot0_DECLAIRE().%n");
+        stat_STRUCT_Set_Algorithm(struxtAlgorithm);
     }
-    public void dyn_SRUCT_boot1_DEFINE()
+    public void dyn_STRUCT_Set_Input(Input struct_Input)
     {
-        System.out.printf("entered stat_STRUCT_boot1_DEFINE().%n");
-        stat_STRUCT_boot1_DEFINE_User_Input();
-        stat_STRUCT_boot1_DEFINE_User_Output();
-        stat_STRUCT_boot1_DEFINE_User_Algorithm();
-        stat_STRUCT_boot1_DEFINE_Algorithm();
-        stat_STRUCT_boot1_DEFINE_Input();
-        stat_STRUCT_boot1_DEFINE_Output();
-        System.out.printf("exiting stat_STRUCT_boot1_DEFINE().%n");
+        stat_STRUCT_Set_Input(struct_Input);
     }
-    public void dyn_STRUCT_boot3_INITIALISE()
+    public void dyn_STRUCT_Set_Output(Output structUserOutput)
     {
-        System.out.printf("entered stat_STRUCT_boot3_INITIALISE().%n");
-        stat_STRUCT_boot3_INITIALISE_User_Input();
-        stat_STRUCT_boot3_INITIALISE_User_Output();
-        stat_STRUCT_boot3_INITIALISE_User_Algorithm();
-        stat_STRUCT_boot3_INITIALISE_Algorithm();
-        stat_STRUCT_boot3_INITIALISE_Input();
-        stat_STRUCT_boot3_INITIALISE_Output();
-        System.out.printf("exiting stat_STRUCT_boot3_INITIALISE().%n");
+        stat_STRUCT_Set_Output(structUserOutput);
     }
-
+    public void dyn_STRUCT_Set_User_Input(User_Input structUserInput)
+    {
+        stat_STRUCT_Set_User_Input(structUserInput);
+    }
+    public void dyn_STRUCT_Set_User_Output(User_Output structUserOutput)
+    {
+        stat_STRUCT_Set_User_Output(structUserOutput);
+    }
+    public void dyn_STRUCT_Set_User_Algorithm(User_Algorithm structUserAlgorithm)
+    {
+        stat_STRUCT_Set_User_Algorithm(structUserAlgorithm);
+    }
+    public void dyn_STRUCTs_boot()
+    {
+        _stat_STRUCT_Algorithm = new Algorithm();
+        _stat_STRUCT_Input = new Input();
+        _stat_STRUCT_Output = new Output();
+        _stat_STRUCT_User_Algorithms = new User_Algorithm();
+        _stat_STRUCT_User_Inputs = new User_Input();
+        _stat_STRUCT_User_Outputs = new User_Output();
+    }
     // private.
     private static void stat_CLASS_boot0_DECLAIRE_Framework_NNI()
     {
@@ -294,4 +298,29 @@ public class Framework_NNI
     {
         return _stat_CLASS_Global;
     }
+    private static void stat_STRUCT_Set_Algorithm(Algorithm struxtAlgorithm)
+    {
+        _stat_STRUCT_Algorithm = struxtAlgorithm;
+    }
+    private static void stat_STRUCT_Set_Input(Input struxtAlgorithm)
+    {
+        _stat_STRUCT_Input = struxtAlgorithm;
+    }
+    private static void stat_STRUCT_Set_Output(Output stuctOutput)
+    {
+        _stat_STRUCT_Output = stuctOutput;
+    }
+    private static void stat_STRUCT_Set_User_Input(User_Input structUserInput)
+    {
+        _stat_STRUCT_User_Inputs = structUserInput;
+    }
+    private static void stat_STRUCT_Set_User_Output(User_Output structUserOutput)
+    {
+        _stat_STRUCT_User_Outputs = structUserOutput;
+    }
+    private static void stat_STRUCT_Set_User_Algorithm(User_Algorithm structUserAlgorithm)
+    {
+        _stat_STRUCT_User_Algorithms = structUserAlgorithm;
+    }
+
 }

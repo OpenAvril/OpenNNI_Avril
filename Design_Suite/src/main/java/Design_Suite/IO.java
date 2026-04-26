@@ -23,49 +23,7 @@ public class IO
         Get_stat_CALSS_Framework_NNI().dyn_CLASS_get_Global().dyn_REG_boot3_INITIALISE_Global();
 
         System.out.printf("started STRUCTS generate.%n");
-
-        System.out.printf("started independent STRUCT classes - DECLAIRE, DEFINE INITIALISE, Registers - DECLAIRE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_boot0_DECLAIRE();
-        Get_stat_CALSS_Framework_NNI().dyn_SRUCT_boot1_DEFINE();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_boot3_INITIALISE();
-        System.out.printf("done independent STRUCT classes - DECLAIRE, DEFINE INITIALISE, Registers - DECLAIRE.%n");
-
-        System.out.printf("started independent STRUCT User_Input() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Input().dyn_REG_boot1_DEFINE_User_Input();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Input().dyn_REG_boot2_SUBSTANTIATE_User_Input();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Input().dyn_REG_boot3_INITIALISE_User_Input();
-        System.out.printf("done independent STRUCT User_Input() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-
-        System.out.printf("started independent STRUCT User_Algorithm() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Algorithm().dyn_REG_boot1_DEFINE_User_Algorithm();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Algorithm().dyn_REG_boot2_SUBSTANTIATE_User_Algorithm();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Algorithm().dyn_REG_boot3_INITIALISE_User_Algorithm();
-        System.out.printf("done independent STRUCT User_Algorithm() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-
-        System.out.printf("started independent STRUCT User_Output(() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Output().dyn_REG_boot1_DEFINE_User_Output();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Output().dyn_REG_boot2_SUBSTANTIATE_User_Output();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Output().dyn_REG_boot3_INITIALISE_User_Output();
-        System.out.printf("done independent STRUCT User_Output(() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-
-        System.out.printf("started independent STRUCT Input() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Input().dyn_REG_boot1_DEFINE_Input();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Input().dyn_REG_boot2_SUBSTANTIATE_Input();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Input().dyn_REG_boot3_INITIALISE_Input(Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Input());
-        System.out.printf("done independent STRUCT Input() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-
-        System.out.printf("started independent STRUCT Algorithm(() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Algorithm().dyn_REG_boot1_DEFINE_Algorithm();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Algorithm().dyn_REG_boot2_SUBSTANTIATE_Algorithm();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Algorithm().dyn_REG_boot3_INITIALISE_Algorithm(Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Algorithm());
-        System.out.printf("done independent STRUCT Algorithm(() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-
-        System.out.printf("started independent STRUCT Output() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Output().dyn_REG_boot1_DEFINE_Output();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Output().dyn_REG_boot2_SUBSTANTIATE_Output();
-        Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_Output().dyn_REG_boot3_INITIALISE_Output(Get_stat_CALSS_Framework_NNI().dyn_STRUCT_get_User_Output());
-        System.out.printf("started independent STRUCT Output() - Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
-
+        Get_stat_CALSS_Framework_NNI().dyn_STRUCTs_boot();
         System.out.printf("done STRUCTS generate.%n");
 
         System.out.printf("started ARCHITECTURE generate.%n");

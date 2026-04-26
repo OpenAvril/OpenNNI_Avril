@@ -4,222 +4,220 @@ public class MetaData
 {
     private String _nameOfNNI;
     private byte _PraiseID;
-    // input.
     private byte _NumberOfBooleanInputs;
     private byte _NumberOfConstantInputs;
     private byte _NumberOfLinearInputs;
     private byte _NumberInputRegisters;
-    // outputs.
     private byte _NumberOfBooleanOutputs;
     private byte _NumberOfConstantOutputs;
     private byte _NumberOfLinearOutputs;
     private byte _NumberOutputRegisters;
-    // internal.
     private byte[] _NumberOfNodesInLayer;
 
-
-    // constructor.
     public MetaData()
     {
-        //System.Console.WriteLine("entered MetaData.");
-
-        Create_NameOfNNI();
-        Create_PraiseID();
-        Create_NumberInputRegisters();
-        Create_NumberOfLinearInputs();
-        Create_NumberOfBooleanInputs();
-        Create_NumberOfConstantInputs();
-        Create_NumberOutputRegisters();
-        Create_NumberOfLinearOutputs();
-        Create_NumberOfBooleanOutputs();
-        Create_NumberOfConstantOutputs();
-        Create_NumberOfNodesInLayer();
-
-        Set_NameOfNNI("OpenNNI");
-        Set_PraiseID(byte.MaxValue);
-        Set_NumberOfInputRegisters(3);
-        Set_NumberOfLinearInputs(1);
-        Set_NumberOfBooleanInputs(1);
-        Set_NumberOfConstantInputs(1);
-        Set_NumberOfOutputRegisters(1);
-        Set_NumberOfLinearOutputs(1);
-        Set_NumberOfBooleanOutputs(1);
-        Set_NumberOfConstantOutputs(1);
-        Set_NumberOfOutputRegisters(3);
-        Set_NumberOfNodesInHiddenLayer(4, 5);
-        Set_NumberOfNodesInHiddenLayer(3, 4);
-        Set_NumberOfNodesInHiddenLayer(2, 3);
-        Set_NumberOfNodesInHiddenLayer(1, 2);
-        Set_NumberOfNodesInHiddenLayer(0, 1);
+        System.out.printf("entered MetaData.");
+        _nameOfNNI = new String("nil");
+        _NumberOfBooleanInputs = Byte.MAX_VALUE;
+        _NumberOfConstantInputs = Byte.MAX_VALUE;
+        _NumberOfLinearInputs = Byte.MAX_VALUE;
+        _NumberInputRegisters = Byte.MAX_VALUE;
+        _NumberOfBooleanOutputs = Byte.MAX_VALUE;
+        _NumberOfConstantOutputs = Byte.MAX_VALUE;
+        _NumberOfLinearOutputs = Byte.MAX_VALUE;
+        _NumberOutputRegisters = Byte.MAX_VALUE;
+        _NumberOfNodesInLayer = new byte[5];
+        for(byte layerID = 0; layerID < 5; layerID++) {
+            _NumberOfNodesInLayer[0] = Byte.MAX_VALUE;
+        }
+        _NumberOfBooleanInputs = (byte) 0.0;
+        _NumberOfConstantInputs = (byte) 0.0;
+        _NumberOfLinearInputs = (byte) 0.0;
+        _NumberInputRegisters = (byte) 0.0;
+        _NumberOfBooleanOutputs = (byte) 0.0;
+        _NumberOfConstantOutputs = (byte) 0.0;
+        _NumberOfLinearOutputs = (byte) 0.0;
+        _NumberOutputRegisters = (byte) 0.0;
+        for(byte layerID = 0; layerID < 5; layerID++) {
+            _NumberOfNodesInLayer[0] = (byte) 0.0;
+        }
+        System.out.printf("exiting MetaData.");
     }
-
-// destructor.
-        ~MetaData()
-{
-
-}
-
-    // public.
-    // get.
-    public string Get_NameOfNNI()
+    public String dyn_REG_Get_NameOfNNI()
+    {
+        return stat_REG_Get_NameOfNNI();
+    }
+    public byte dyn_REG_Get_PraiseID()
+    {
+        return stat_REG_Get_PraiseID();
+    }
+    public byte dyn_REG_Get_NumberOfBooleanInputs()
+    {
+        return stat_REG_Get_NumberOfBooleanInputs();
+    }
+    public byte dyn_REG_Get_NumberOfBooleanOutputs()
+    {
+        return stat_REG_Get_NumberOfBooleanOutputs();
+    }
+    public byte dyn_REG_Get_NumberOfConstantInputs()
+    {
+        return stat_REG_Get_NumberOfConstantInputs();
+    }
+    public byte dyn_REG_Get_NumberOfConstantOutputs()
+    {
+        return stat_REG_Get_NumberOfConstantOutputs();
+    }
+    public byte dyn_REG_Get_NumberInputRegisters()
+    {
+        return stat_REG_Get_NumberInputRegisters();
+    }
+    public byte dyn_REG_Get_NumberOfLinearInputs()
+    {
+        return stat_REG_Get_NumberOfLinearInputs();
+    }
+    public byte dyn_REG_Get_NumberOfLinearOutputs()
+    {
+        return stat_REG_Get_NumberOfLinearOutputs();
+    }
+    public byte dyn_REG_Get_NumberOfNodesInHiddenLayer(byte hiddenLayerID)
+    {
+        return stat_REG_Get_NumberOfNodesInHiddenLayer(hiddenLayerID);
+    }
+    public byte dyn_REG_Get_NumberOutputRegisters()
+    {
+        return stat_REG_Get_NumberOutputRegisters();
+    }
+    public void dyn_REG_Set_NameOfNNI(String nameOfNNI)
+    {
+        stat_REG_Set_NameOfNNI(nameOfNNI);
+    }
+    public void dyn_REG_Set_PraiseID(byte value)
+    {
+        stat_REG_Set_PraiseID(value);
+    }
+    public void dyn_REG_Set_NumberOfBooleanInputs(byte numberOfBinaryValues)
+    {
+        stat_REG_Set_PraiseID(numberOfBinaryValues);
+    }
+    public void dyn_REG_Set_NumberOfBooleanOutputs(byte numberOfBinaryValues)
+    {
+        stat_REG_Set_NumberOfBooleanOutputs(numberOfBinaryValues);
+    }
+    public void dyn_REG_Set_NumberOfConstantInputs(byte numberOfResetToConstantValues)
+    {
+        stat_REG_Set_NumberOfConstantInputs(numberOfResetToConstantValues);
+    }
+    public void dyn_REG_Set_NumberOfConstantOutputs(byte numberOfResetToConstantValues)
+    {
+        stat_REG_Set_NumberOfConstantOutputs(numberOfResetToConstantValues);
+    }
+    public void dyn_REG_Set_NumberOfInputRegisters(byte numberOfInputValues)
+    {
+        stat_REG_Set_NumberOfInputRegisters(numberOfInputValues);
+    }
+    public void dyn_REG_Set_NumberOfLinearInputs(byte numberOfLinearValues)
+    {
+        stat_REG_Set_NumberOfLinearInputs(numberOfLinearValues);
+    }
+    public void dyn_REG_Set_NumberOfLinearOutputs(byte numberOfLinearValues)
+    {
+        stat_REG_Set_NumberOfLinearOutputs(numberOfLinearValues);
+    }
+    public void dyn_REG_Set_NumberOfNodesInHiddenLayer(byte layerID, byte numberOfNodes)
+    {
+        stat_REG_Set_NumberOfNodesInHiddenLayer(layerID, numberOfNodes);
+    }
+    public void dyn_REG_Set_NumberOfOutputRegisters(byte numberOfInputValues)
+    {
+        stat_REG_Set_NumberOfOutputRegisters(numberOfInputValues);
+    }
+// private.
+    public String stat_REG_Get_NameOfNNI()
     {
         return _nameOfNNI;
     }
-    public byte Get_PraiseID()
+    public byte stat_REG_Get_PraiseID()
     {
         return _PraiseID;
     }
-    public byte Get_NumberOfBooleanInputs()
+    public byte stat_REG_Get_NumberOfBooleanInputs()
     {
         return _NumberOfBooleanInputs;
     }
-    public byte Get_NumberOfBooleanOutputs()
+    public byte stat_REG_Get_NumberOfBooleanOutputs()
     {
         return _NumberOfBooleanOutputs;
     }
-    public byte Get_NumberOfConstantInputs()
+    public byte stat_REG_Get_NumberOfConstantInputs()
     {
         return _NumberOfConstantInputs;
     }
-    public byte Get_NumberOfConstantOutputs()
+    public byte stat_REG_Get_NumberOfConstantOutputs()
     {
         return _NumberOfConstantOutputs;
     }
-    public byte Get_NumberInputRegisters()
+    public byte stat_REG_Get_NumberInputRegisters()
     {
         return _NumberInputRegisters;
     }
-    public byte Get_NumberOfLinearInputs()
+    public byte stat_REG_Get_NumberOfLinearInputs()
     {
         return _NumberOfLinearInputs;
     }
-    public byte Get_NumberOfLinearOutputs()
+    public byte stat_REG_Get_NumberOfLinearOutputs()
     {
         return _NumberOfLinearOutputs;
     }
-    public byte Get_NumberOfNodesInHiddenLayer(byte hiddenLayerID)
+    public byte stat_REG_Get_NumberOfNodesInHiddenLayer(byte hiddenLayerID)
     {
         return _NumberOfNodesInLayer[hiddenLayerID];
     }
-    public byte Get_NumberOutputRegisters()
+    public byte stat_REG_Get_NumberOutputRegisters()
     {
         return _NumberOutputRegisters;
     }
-
-    // set.
-    public void Set_NameOfNNI(string nameOfNNI)
+    public void stat_REG_Set_NameOfNNI(String nameOfNNI)
     {
         _nameOfNNI = nameOfNNI;
     }
-    public void Set_PraiseID(byte value)
+    public void stat_REG_Set_PraiseID(byte value)
     {
         _PraiseID = value;
     }
-    public void Set_NumberOfBooleanInputs(byte numberOfBinaryValues)
+    public void stat_REG_Set_NumberOfBooleanInputs(byte numberOfBinaryValues)
     {
         _NumberOfBooleanInputs = numberOfBinaryValues;
     }
-    public void Set_NumberOfBooleanOutputs(byte numberOfBinaryValues)
+    public void stat_REG_Set_NumberOfBooleanOutputs(byte numberOfBinaryValues)
     {
         _NumberOfBooleanOutputs = numberOfBinaryValues;
     }
-    public void Set_NumberOfConstantInputs(byte numberOfResetToConstantValues)
+    public void stat_REG_Set_NumberOfConstantInputs(byte numberOfResetToConstantValues)
     {
         _NumberOfConstantInputs = numberOfResetToConstantValues;
     }
-    public void Set_NumberOfConstantOutputs(byte numberOfResetToConstantValues)
+    public void stat_REG_Set_NumberOfConstantOutputs(byte numberOfResetToConstantValues)
     {
         _NumberOfConstantOutputs = numberOfResetToConstantValues;
     }
-    public void Set_NumberOfInputRegisters(byte numberOfInputValues)
+    public void stat_REG_Set_NumberOfInputRegisters(byte numberOfInputValues)
     {
         _NumberInputRegisters = numberOfInputValues;
     }
-    public void Set_NumberOfLinearInputs(byte numberOfLinearValues)
+    public void stat_REG_Set_NumberOfLinearInputs(byte numberOfLinearValues)
     {
         _NumberOfLinearInputs = numberOfLinearValues;
     }
-    public void Set_NumberOfLinearOutputs(byte numberOfLinearValues)
+    public void stat_REG_Set_NumberOfLinearOutputs(byte numberOfLinearValues)
     {
         _NumberOfLinearOutputs = numberOfLinearValues;
     }
-    public void Set_NumberOfNodesInHiddenLayer(byte layerID, byte numberOfNodes)
+    public void stat_REG_Set_NumberOfNodesInHiddenLayer(byte layerID, byte numberOfNodes)
     {
         _NumberOfNodesInLayer[layerID] = numberOfNodes;
     }
-    public void Set_NumberOfOutputRegisters(byte numberOfInputValues)
+    public void stat_REG_Set_NumberOfOutputRegisters(byte numberOfInputValues)
     {
         _NumberOutputRegisters = numberOfInputValues;
-    }
-
-    // private.
-    private void Create_NameOfNNI()
-    {
-        _nameOfNNI = new string("nil");
-    }
-    private void Create_PraiseID()
-    {
-        Set_PraiseID(new byte());
-        Set_PraiseID(byte.MaxValue);
-    }
-    private void Create_NumberOfBooleanInputs()
-    {
-        Set_NumberOfBooleanInputs(new byte());
-        Set_NumberOfBooleanInputs(0);
-    }
-    private void Create_NumberOfBooleanOutputs()
-    {
-        Set_NumberOfBooleanOutputs(new byte());
-        Set_NumberOfBooleanOutputs(0);
-    }
-    private void Create_NumberOfConstantInputs()
-    {
-        Set_NumberOfConstantInputs(new byte());
-        Set_NumberOfConstantInputs(0);
-    }
-    private void Create_NumberOfConstantOutputs()
-    {
-        Set_NumberOfConstantOutputs(new byte());
-        Set_NumberOfConstantOutputs(0);
-    }
-    private void Create_NumberInputRegisters()
-    {
-        Set_NumberOfInputRegisters(new byte());
-        Set_NumberOfInputRegisters(0);
-    }
-    private void Create_NumberOfLinearInputs()
-    {
-        Set_NumberOfLinearInputs(new byte());
-        Set_NumberOfLinearInputs(0);
-    }
-    private void Create_NumberOfLinearOutputs()
-    {
-        Set_NumberOfLinearOutputs(new byte());
-        Set_NumberOfLinearOutputs(0);
-    }
-    private void Create_NumberOfNodesInLayer()
-    {
-        Set_List_Of_NumberOfNodesInHiddenLayer(new byte[5]);
-        while (Get_List_Of_NumberOfNodesInHiddenLayer() == null) { }
-        for(byte layerID = 0; layerID < 5; layerID++)
-        {
-            Set_NumberOfNodesInHiddenLayer(layerID, new byte());
-            Set_NumberOfNodesInHiddenLayer(layerID, 0);
-        }
-    }
-    private void Create_NumberOutputRegisters()
-    {
-        Set_NumberOfOutputRegisters(new byte());
-        Set_NumberOfOutputRegisters(0);
-    }
-    // get.
-    private byte[] Get_List_Of_NumberOfNodesInHiddenLayer()
-    {
-        return _NumberOfNodesInLayer;
-    }
-    // set.
-    private void Set_List_Of_NumberOfNodesInHiddenLayer(byte[] newList)
-    {
-        _NumberOfNodesInLayer = newList;
     }
 }

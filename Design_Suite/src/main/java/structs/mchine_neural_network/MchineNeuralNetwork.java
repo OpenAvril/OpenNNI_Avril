@@ -1,77 +1,59 @@
 package structs.mchine_neural_network;
 
+import engine.Framework_NNI;
+import structs.neural_path.Linear;
+
 public class MchineNeuralNetwork
 {
-    private MetaData _MetaData;
-    private Binary[] _list_Of_Boolean_Paths;
-    private Constant[] _list_Of_Constant_Paths;
-    private Linear[] _list_Of_Linear_Paths;
-    private double[] _list_Of_REGISTERED_Inputs;
-    private double[] _list_Of_REGISTERED_Outputs;
-    private bool _isNewDataReady;
+    private static Binary[] _stat_REG_list_Of_Boolean_Paths;
+    private static Constant[] _stat_REG_list_Of_Constant_Paths;
+    private static Linear[] _stat_REG_list_Of_Linear_Paths;
+    private static double[] _stat_REG_list_Of_REGISTERED_Inputs;
+    private static double[] _stat_REG_list_Of_REGISTERED_Outputs;
+    private static boolean _stat_REG_isNewDataReady;
+    private static MetaData _stat_STRUCT_MetaData;
 
-    public MachineAI()
+    public MchineNeuralNetwork(MetaData structMetaData)
     {
-        //System.Console.WriteLine("entered MachineAI.");
-        Create_MetaData();
-        Create_list_Of_REGISTERED_Inputs();
-        Create_list_Of_Linear_Paths();
-        Create_list_Of_Boolean_Paths();
-        Create_list_Of_Constant_Paths();
-        Create_list_Of_REGISTERED_Outputs();
-        Create_isNewDataReady();
-    }
-    public void Initialise_list_Of_Boolean_Paths(MachineAI objNNI, byte numberOfBinaryValues)
-    {
-        Binary DEFAULT_Boolean = objNNI.Get_Item_On_list_Of_Boolean_Paths(0);
-        objNNI.Set_list_Of_Boolean_Paths(new Binary[numberOfBinaryValues]);
-        while (objNNI.Get_list_Of_Boolean_Paths() == null) { }
-        for (byte index = 0; index < numberOfBinaryValues; index++)
+        System.out.printf("entered MchineNeuralNetwork.");
+        _stat_STRUCT_MetaData = null;
+        _stat_REG_list_Of_Boolean_Paths = new Binary[structMetaData.dyn_REG_Get_NumberOfBooleanInputs()];
+        _stat_REG_list_Of_Boolean_Paths[0] = null;
+        _stat_REG_list_Of_Constant_Paths = null;
+        _stat_REG_list_Of_Linear_Paths = null;
+
+        _stat_REG_list_Of_REGISTERED_Inputs = new double[1];
+        _stat_REG_list_Of_REGISTERED_Inputs[0] = Double.MAX_VALUE;
+        _stat_REG_list_Of_REGISTERED_Outputs = new double[1];
+        _stat_REG_list_Of_REGISTERED_Outputs[0] = Double.MAX_VALUE;
+        _stat_REG_isNewDataReady = true;
+
+        _stat_STRUCT_MetaData = new MetaData();
+        for(byte index = 0; index < _stat_REG_list_Of_Boolean_Paths.length; index++)
         {
-            Set_Item_On_list_Of_Linear_Paths(index, new Linear());
-            while (objNNI.Get_Item_On_list_Of_Linear_Paths(index) == null) { }
-            objNNI.Set_Item_On_list_Of_Boolean_Paths(index, DEFAULT_Boolean);
+            _stat_REG_list_Of_Boolean_Paths[index] = structBinary;
         }
-    }
-    public void Initialise_list_Of_Constant_Paths(MachineAI objNNI, byte numberOfResetToConstantValues)
-    {
-        Constant DEFAULT_Constant = objNNI.Get_Item_On_list_Of_Constant_Paths(0);
-        objNNI.Set_list_Of_Constant_Paths(new Constant[numberOfResetToConstantValues]);
-        while (objNNI.Get_list_Of_Constant_Paths() == null) { }
-        for (byte index = 0; index < numberOfResetToConstantValues; index++)
-        {
-            objNNI.Set_Item_On_list_Of_Constant_Paths(index, DEFAULT_Constant);
+        for(byte index = 0; index < _stat_REG_list_Of_Constant_Paths.length; index++) {
+            _stat_REG_list_Of_Constant_Paths = null;
         }
-    }
-    public void Initialise_list_Of_REGISTERED_Inputs(byte numberOfInputValues)
-    {
-        Set_list_Of_REGISTERED_Inputs(new double[numberOfInputValues]);
-        for (byte index = 0; index < numberOfInputValues; index++)
-        {
-            Set_Item_On_List_Of_REGISTERED_Input(index, 1.0);
+        for(byte index = 0; index < _stat_REG_list_Of_Linear_Paths.length; index++) {
+            _stat_REG_list_Of_Linear_Paths = null;
         }
-    }
-    public void Initialise_list_Of_Linear_Paths(MachineAI objNNI, byte numberOfLinearPaths)
-    {
-        Linear DEFAULT_Linear = objNNI.Get_Item_On_list_Of_Linear_Paths(0);
-        objNNI.Set_list_Of_Linear_Paths(new Linear[numberOfLinearPaths]);
-        while (objNNI.Get_list_Of_Linear_Paths() == null) { }
-        for (byte index = 0; index < numberOfLinearPaths; index++)
-        {
-            objNNI.Set_Item_On_list_Of_Linear_Paths(index, new Linear());
-            while (objNNI.Get_Item_On_list_Of_Linear_Paths(index) == null) { }
-            objNNI.Set_Item_On_list_Of_Linear_Paths(index, DEFAULT_Linear);
+        for(byte index = 0; index < _stat_REG_list_Of_REGISTERED_Inputs.length; index++) {
+            _stat_REG_list_Of_REGISTERED_Inputs = new double[1];
         }
-    }
-    public void Initialise_list_Of_REGISTERED_Outputs(byte numberOfOutputValues)
-    {
-        Set_list_Of_REGISTERED_Inputs(new double[numberOfOutputValues]);
-        for (byte index = 0; index < numberOfOutputValues; index++)
-        {
-            Set_Item_On_List_Of_REGISTERED_Input(index, 1.0);
+        for(byte index = 0; index < _stat_REG_list_Of_REGISTERED_Inputs.length; index++) {
+            _stat_REG_list_Of_REGISTERED_Inputs[0] = Double.MAX_VALUE;
         }
+        for(byte index = 0; index < _stat_REG_list_Of_REGISTERED_Outputs.length; index++) {
+            _stat_REG_list_Of_REGISTERED_Outputs = new double[1];
+        }
+        for(byte index = 0; index < _stat_REG_list_Of_REGISTERED_Outputs.length; index++) {
+            _stat_REG_list_Of_REGISTERED_Outputs[0] = Double.MAX_VALUE;
+        }
+        _stat_REG_isNewDataReady = true;
     }
-    public void Initialise_MachineAI_Architechure(Framework_NNI obj, MachineAI objNNI, MetaData metaData)
+    public void Initialise_MchineNeuralNetwork_Architechure(Framework_NNI obj, MchineNeuralNetwork objNNI, MetaData metaData)
     {
         // io.
         objNNI.Initialise_list_Of_REGISTERED_Inputs(metaData.Get_NumberInputRegisters());
@@ -80,15 +62,15 @@ public class MchineNeuralNetwork
         objNNI.Initialise_list_Of_Linear_Paths(objNNI, metaData.Get_NumberOfLinearOutputs());
         for (byte linearOutputID = 0; linearOutputID < metaData.Get_NumberOfLinearOutputs(); linearOutputID++)
         {
-            System.Console.WriteLine("echo loop.");
+            System.out.printf("echo loop.");
             objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Initialise_Tree_Of_Nodes_In_PraiseSet(objNNI, linearOutputID);
             for (Int16 layerID = 4; layerID > -1; layerID--)
             {
                 byte hiddenLayerID = Convert.ToByte(layerID);
-                System.Console.WriteLine("foxtrot loop. outputID = " + linearOutputID + "  hiddenLayerID = " + hiddenLayerID);
+                System.out.printf("foxtrot loop. outputID = " + linearOutputID + "  hiddenLayerID = " + hiddenLayerID);
                 for (byte nodeID = 0; nodeID < metaData.Get_NumberOfNodesInHiddenLayer(hiddenLayerID); nodeID++)
                 {
-                    System.Console.WriteLine("giga loop.");
+                    System.out.printf("giga loop.");
                     if (hiddenLayerID == (byte)(4))
                     {
                         //ToDo null refference aception. \/ \/ \/
@@ -102,7 +84,7 @@ public class MchineNeuralNetwork
                     for (byte inputID = 0; inputID < objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Get_Node(hiddenLayerID, nodeID).Get_NumberOfInputs(); inputID++)
                     {
                         objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Get_Node(hiddenLayerID, nodeID).Get_Item_On_list_Of_Linear_NeuralPath(linearOutputID).Initialise_Linear_NeuralPath(obj);
-                        System.Console.WriteLine("outputID = " + linearOutputID + "  hiddenLayerID = " + hiddenLayerID + "  nodeID = " + nodeID + "  bias = " + objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Get_Node(hiddenLayerID, nodeID).Get_Item_On_list_Of_Linear_NeuralPath(inputID).Get_bias() + "  weight = " + objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Get_Node(hiddenLayerID, nodeID).Get_Item_On_list_Of_Linear_NeuralPath(inputID).Get_weight());
+                        System.out.printf("outputID = " + linearOutputID + "  hiddenLayerID = " + hiddenLayerID + "  nodeID = " + nodeID + "  bias = " + objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Get_Node(hiddenLayerID, nodeID).Get_Item_On_list_Of_Linear_NeuralPath(inputID).Get_bias() + "  weight = " + objNNI.Get_Item_On_list_Of_Linear_Paths(linearOutputID).Get_PraiseSet().Get_Node(hiddenLayerID, nodeID).Get_Item_On_list_Of_Linear_NeuralPath(inputID).Get_weight());
                     }
                 }
             }
@@ -123,7 +105,7 @@ public class MchineNeuralNetwork
     {
         Set_MetaData(newMetaData);
     }
-    public bool Run_Neural_Network_Inteligence(OpenAvrilNNI.MachineAI objNNI)
+    public bool Run_Neural_Network_Inteligence(OpenAvrilNNI.MchineNeuralNetwork objNNI)
     {
         Console.WriteLine("alpha.");
         if (objNNI.Get_IsNewDataReady() == false)
@@ -168,150 +150,117 @@ public class MchineNeuralNetwork
         objNNI.Set_IsNewDataReady(true);
         return objNNI.Get_IsNewDataReady();
     }
-    public bool Get_IsNewDataReady()
+    public MetaData dyn_REG_Get_MetaData()
     {
-        return _isNewDataReady;
+        return stat_REG_Get_MetaData();
     }
-    public Binary[] Get_list_Of_Boolean_Paths()
+    public Binary[] dyn_REG_Get_list_Of_Boolean_Paths()
     {
-        return _list_Of_Boolean_Paths;
+        return stat_REG_Get_list_Of_Boolean_Paths();
     }
-    public Constant[] Get_list_Of_Constant_Paths()
+    public Constant[] dyn_REG_Get_list_Of_Constant_Paths()
     {
-        return _list_Of_Constant_Paths;
+        return stat_REG_Get_list_Of_Constant_Paths();
     }
-    public Linear[] Get_list_Of_Linear_Paths()
+    public Linear[] dyn_REG_Get_list_Of_Linear_Paths()
     {
-        return _list_Of_Linear_Paths;
+        return stat_REG_Get_list_Of_Linear_Paths();
     }
-    public double[] Get_list_Of_REGISTERED_Inputs()
+    public double[] dyn_REG_Get_list_Of_REGISTERED_Inputs()
     {
-        return _list_Of_REGISTERED_Inputs;
+        return stat_REG_Get_list_Of_REGISTERED_Inputs();
     }
-    public double[] Get_list_Of_REGISTERED_Outputs()
+    public double[] dyn_REG_Get_list_Of_REGISTERED_Outputs()
     {
-        return _list_Of_REGISTERED_Outputs;
+        return stat_REG_Get_list_Of_REGISTERED_Outputs();
     }
-    public Binary Get_Item_On_list_Of_Boolean_Paths(byte binaryID)
+    public boolean dyn_REG_Get_IsNewDataReady()
     {
-        return _list_Of_Boolean_Paths[binaryID];
+        return stat_REG_Get_IsNewDataReady();
     }
-    public Constant Get_Item_On_list_Of_Constant_Paths(byte constantID)
+    public void dyn_STRUCT_Set_MetaData(MetaData structMetaData)
     {
-        return _list_Of_Constant_Paths[constantID];
+        stat_STRUCT_Set_MetaData(structMetaData);
     }
-    public Linear Get_Item_On_list_Of_Linear_Paths(byte praiseTreeID)
+    public void dyn_REG_Set_Item_On_list_Of_Boolean_Paths(byte binaryID, Binary value)
     {
-        return _list_Of_Linear_Paths[praiseTreeID];
+        dyn_REG_Set_Item_On_list_Of_Boolean_Paths(binaryID, value);
     }
-    public double Get_Item_On_list_Of_REGISTERED_Inputs(byte registerID)
+    public void dyn_REG_Set_Item_On_list_Of_Constant_Paths(byte constantID, Constant value)
     {
-        return _list_Of_REGISTERED_Inputs[registerID];
+        stat_REG_Set_Item_On_list_Of_Constant_Paths(constantID, value);
     }
-    public double Get_Item_On_list_Of_REGISTERED_Outputs(byte registerID)
+    public void dyn_REG_Set_Item_On_list_Of_Linear_Paths(byte praiseTreeID, Linear value)
     {
-        return _list_Of_REGISTERED_Outputs[registerID];
+        stat_REG_Set_Item_On_list_Of_Linear_Paths(praiseTreeID, value);
     }
-    public OpenAvrilNNI.MetaData Get_MetaData()
+    public void dyn_REG_Set_Item_On_List_Of_REGISTERED_Input(byte registerID, double value)
     {
-        return _MetaData;
+        stat_REG_Set_Item_On_List_Of_REGISTERED_Input(registerID, value);
     }
-    public void Set_IsNewDataReady(bool value)
+    public void dyn_REG_Set_Item_On_List_Of_REGISTERED_Output(byte registerID, double value)
     {
-        _isNewDataReady = value;
+        stat_REG_Set_Item_On_List_Of_REGISTERED_Output(registerID, value);
     }
-    public void Set_Item_On_list_Of_Boolean_Paths(byte binaryID, Binary value)
+    public void dyn_REG_Set_IsNewDataReady(boolean value)
     {
-        _list_Of_Boolean_Paths[binaryID] = value;
-    }
-    public void Set_Item_On_list_Of_Constant_Paths(byte constantID, Constant value)
-    {
-        _list_Of_Constant_Paths[constantID] = value;
-    }
-    public void Set_Item_On_list_Of_Linear_Paths(byte praiseTreeID, Linear value)
-    {
-        _list_Of_Linear_Paths[praiseTreeID] = value;
-    }
-    public void Set_Item_On_List_Of_REGISTERED_Input(byte registerID, double value)
-    {
-        _list_Of_REGISTERED_Inputs[registerID] = value;
-    }
-    public void Set_Item_On_List_Of_REGISTERED_Output(byte registerID, double value)
-    {
-        _list_Of_REGISTERED_Outputs[registerID] = value;
+        stat_REG_Set_IsNewDataReady(value);
     }
 // private.
-    private void Create_isNewDataReady()
+    public static MetaData stat_REG_Get_MetaData()
     {
-        _isNewDataReady = new bool();
-        Set_IsNewDataReady(false);
+        return _stat_STRUCT_MetaData;
     }
-    private void Create_list_Of_Boolean_Paths()
+    public static Binary[] stat_REG_Get_list_Of_Boolean_Paths()
     {
-        Set_list_Of_Boolean_Paths(new Binary[1]);
-        while (Get_list_Of_Boolean_Paths() == null) { }
-        Set_Item_On_list_Of_Boolean_Paths(0, new Binary());
-        while(Get_Item_On_list_Of_Boolean_Paths(0) == null) { }
+        return _stat_REG_list_Of_Boolean_Paths;
     }
-    private void Create_list_Of_Constant_Paths()
+    public static Constant[] stat_REG_Get_list_Of_Constant_Paths()
     {
-        Set_list_Of_Constant_Paths(new Constant[1]);
-        while (Get_list_Of_Constant_Paths() == null) { }
-        Set_Item_On_list_Of_Constant_Paths(0, new Constant());
-        while (Get_Item_On_list_Of_Constant_Paths(0) == null) { }
+        return _stat_REG_list_Of_Constant_Paths;
     }
-    private void Create_list_Of_REGISTERED_Inputs()
+    public static Linear[] stat_REG_Get_list_Of_Linear_Paths()
     {
-        Set_list_Of_REGISTERED_Inputs(new double[3]);
-        for (byte index = 0; index < 3; index++)
-        {
-            Set_Item_On_List_Of_REGISTERED_Input(index, 0.0);
-        }
+        return _stat_REG_list_Of_Linear_Paths;
     }
-    private void Create_list_Of_Linear_Paths()
+    public static double[] stat_REG_Get_list_Of_REGISTERED_Inputs()
     {
-        Set_list_Of_Linear_Paths(new Linear[1]);
-        while (Get_list_Of_Linear_Paths() == null) { }
-        Set_Item_On_list_Of_Linear_Paths(0, new Linear());
-        while (Get_Item_On_list_Of_Linear_Paths(0) == null) { }
+        return _stat_REG_list_Of_REGISTERED_Inputs;
     }
-    private void Create_list_Of_REGISTERED_Outputs()
+    public static double[] stat_REG_Get_list_Of_REGISTERED_Outputs()
     {
-        Set_list_Of_REGISTERED_Outputs(new double[3]);
-        for (byte index = 0; index < 3; index++)
-        {
-            Set_Item_On_List_Of_REGISTERED_Output(index, 0.0);
-        }
+        return _stat_REG_list_Of_REGISTERED_Outputs;
     }
-    private void Create_MetaData()
+    public static boolean stat_REG_Get_IsNewDataReady()
     {
-        Set_MetaData(new OpenAvrilNNI.MetaData());
-        while (Get_MetaData() == null) { }
+        return _stat_REG_isNewDataReady;
     }
-    // get.
-    // set.
-    private void Set_list_Of_Boolean_Paths(Binary[] value)
+    public void stat_STRUCT_Set_MetaData(MetaData structMetaData)
     {
-        _list_Of_Boolean_Paths = value;
+        _stat_STRUCT_MetaData = structMetaData;
     }
-    private void Set_list_Of_Constant_Paths(Constant[] value)
+    public void stat_REG_Set_Item_On_list_Of_Boolean_Paths(byte binaryID, Binary value)
     {
-        _list_Of_Constant_Paths = value;
+        _stat_REG_list_Of_Boolean_Paths[binaryID] = value;
     }
-    private void Set_list_Of_Linear_Paths(Linear[] value)
+    public void stat_REG_Set_Item_On_list_Of_Constant_Paths(byte constantID, Constant value)
     {
-        _list_Of_Linear_Paths = value;
+        _stat_REG_list_Of_Constant_Paths[constantID] = value;
     }
-    private void Set_list_Of_REGISTERED_Inputs(double[] value)
+    public void stat_REG_Set_Item_On_list_Of_Linear_Paths(byte praiseTreeID, Linear value)
     {
-        _list_Of_REGISTERED_Inputs = value;
+        _stat_REG_list_Of_Linear_Paths[praiseTreeID] = value;
     }
-    private void Set_list_Of_REGISTERED_Outputs(double[] value)
+    public void stat_REG_Set_Item_On_List_Of_REGISTERED_Input(byte registerID, double value)
     {
-        _list_Of_REGISTERED_Outputs = value;
+        _stat_REG_list_Of_REGISTERED_Inputs[registerID] = value;
     }
-    private void Set_MetaData(OpenAvrilNNI.MetaData value)
+    public void stat_REG_Set_Item_On_List_Of_REGISTERED_Output(byte registerID, double value)
     {
-        _MetaData = value;
+        _stat_REG_list_Of_REGISTERED_Outputs[registerID] = value;
+    }
+    public void stat_REG_Set_IsNewDataReady(boolean value)
+    {
+        _stat_REG_isNewDataReady
     }
 }

@@ -5,11 +5,22 @@ import engine.Framework_NNI;
 public class Linear
 {
     private PraiseSet _PraiseSet;
+
+    //todo
+
+
+
+
+
+
+
+
+
     public Linear()
     {
-        //System.Console.WriteLine("entered Linear.");
+        //System.out.printf("entered Linear.");
         Create_PraiseSet();
-        //System.Console.WriteLine("exiting Linear.");
+        //System.out.printf("exiting Linear.");
     }
     public PraiseSet Get_PraiseSet()
     {

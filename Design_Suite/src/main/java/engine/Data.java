@@ -75,7 +75,7 @@ public class Data
 // private.
     public void stat_APP_Initialise_DEFAULT_list_Of_MchineNeuralNetwork(MchineNeuralNetwork _DEFAULT_MchineNeuralNetwork)
     {
-        stat_REG_Set_Item_On_list_Of_MachineAI(0, _DEFAULT_MchineNeuralNetwork);
+        stat_REG_Set_Item_On_list_Of_MchineNeuralNetwork(0, _DEFAULT_MchineNeuralNetwork);
     }
     public void stat_APP_Preserve_New_Neural_Network(MchineNeuralNetwork newNeuralNetwork)
     {
@@ -127,8 +127,8 @@ public class Data
     {
         return _stat_REG_list_Of_MchineNeuralNetwork;
     }
-    private static void stat_REG_Set_Item_On_list_Of_MachineAI(int praiseID, MchineNeuralNetwork newMachineAI)
+    private static void stat_REG_Set_Item_On_list_Of_MchineNeuralNetwork(int praiseID, MchineNeuralNetwork newMchineNeuralNetwork)
     {
-        _stat_REG_list_Of_MchineNeuralNetwork[praiseID] = newMachineAI;
+        _stat_REG_list_Of_MchineNeuralNetwork[praiseID] = newMchineNeuralNetwork;
     }
 }
